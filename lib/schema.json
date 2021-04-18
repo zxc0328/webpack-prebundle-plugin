@@ -1,0 +1,67 @@
+{
+  "type": "object",
+  "properties": {
+    "logLevel": {
+      "type": "string"
+    },
+    "vendors": {
+      "type": "object",
+      "description": "Vendor layer prebundling config.",
+      "properties": {
+        "entries": {
+          "type": "array",
+          "description": "Vendor package names array.",
+          "items": {
+            "description": "A vendor package name entry.",
+            "type": "string"
+          }
+        },
+        "output": {
+          "type": "string",
+          "description": "Output file path."
+        },
+        "esbuildOptions": {
+          "type": "object",
+          "description": "Custom esbuild config."
+        }
+      },
+      "additionalProperties": false
+    },
+    "commons": {
+      "type": "array",
+      "description": "Common layer prebundling config.",
+      "items": {
+        "description": "Common code entry.",
+        "type": "object",
+        "properties": {
+          "entries": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "output": {
+            "type": "string"
+          },
+          "watch": {
+            "anyOf": [
+              { "type": "boolean" },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "esbuildOptions": {
+            "type": "object",
+            "description": "Custom esbuild config."
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

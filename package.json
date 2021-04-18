@@ -1,0 +1,32 @@
+{
+  "name": "webpack-prebundle-plugin",
+  "version": "1.0.0-beta.1",
+  "description": "A webpack plugin for prebundling your vendors and common code on the fly. Powered by esbuild.",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zxc0328/webpack-prebundle-plugin.git"
+  },
+  "keywords": [
+    "webpack",
+    "prebundling"
+  ],
+  "author": "zxc0328",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zxc0328/webpack-prebundle-plugin/issues"
+  },
+  "homepage": "https://github.com/zxc0328/webpack-prebundle-plugin#readme",
+  "peerDependencies": {
+    "chokidar": "^3.5.1",
+    "esbuild": "^0.11.12"
+  },
+  "dependencies": {
+    "schema-utils": "^3.0.0",
+    "chokidar": "^3.5.1",
+    "esbuild": "^0.11.12"
+  }
+}
