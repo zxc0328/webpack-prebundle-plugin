@@ -48,6 +48,10 @@ module.exports = {
 
 Then you are done! Enjoy the build performance boost.
 
+### Example project
+
+[Example of webpack-prebundle-plugin with react/@redux/toolkit/antd](https://github.com/zxc0328/webpack-prebundle-plugin-example)
+
 
 ### Config
 
@@ -57,7 +61,7 @@ Then you are done! Enjoy the build performance boost.
 {
   vendors: {
     entries: ['react', 'react-dom', 'antd'], // vendors entries,  similar to entries in webpack 
-    output: path.resolve(__dirname, "../public/vendors.js") // output file's path
+    output: path.resolve(__dirname, "../public/vendors.js"), // output file's path
     esbuildOptions: {
         // extra esbuildOptions, doc: https://esbuild.github.io/api/#simple-options
     }
@@ -68,16 +72,30 @@ Then you are done! Enjoy the build performance boost.
 
 ####  commons
 
-// todo
+```javascript
+{
+  commons: [
+    // a common code bundle
+    {
+      entries: [path.resolve(__dirname, '../src/services/index.ts')], // common code entries,  similar to entries in webpack 
+      output: path.resolve(__dirname, '../src/prebuilt/services/index.js'), // output file's path
+      watch: true, // config watch mode, pass in true will watch on entries, you can pass in arrays of paths to force wath specific paths
+      esbuildOptions: {
+            external: ['src/utils/Url'],
+            // extra esbuildOptions, doc: https://esbuild.github.io/api/#simple-options
+      },
+   },
+}
+```
 
 
 View complete option schema in [Schema.json](https://github.com/zxc0328/webpack-prebuild-plugin/blob/master/lib/schema.json)
 
 ### Why build this plugin?
 
-Webpack runs faster when it builds less modules. We can make Webpack build faster by reduce the number of modules, like externalize all dependencies from node_modules or prebundle vendors code with DLLPLugin. But both external and DLLPlugin have some inconvenience. External requires modify HTML template when upgrade dependency version. DLLPlugin need rebuild every time when upgrade dependency version and we need to store JS files built within Git repo(commit changes for dll bundle every time when deps change).
+Webpack runs faster when it builds less modules. We can make Webpack build faster by reduce the number of modules, like externalize all dependencies from node_modules or prebundle vendors code with DLLPLugin. But both external and DLLPlugin have some inconveniences. External requires modify HTML template when upgrade dependency version. DLLPlugin need to rebuild every time when dependency change. And we need to commit JS files built with DLLPlugin to Git repo, which require more disk space.
 
-DLLPlugin is better for large-scale Web apps that use hundreds of deps. Not all deps are UMD bundled and can be externalized. So DLLPlugin is kind of a universal solution. The way DLLPlugin works, is bundling less frequently changed code ahead of time. That's what prebundle means. DLLPlugin works fine, but it has the defect metioned above.
+Compare with External method, DLLPlugin is better for large-scale Web apps that use hundreds of deps. Not all deps are UMD bundled and can be externalized. So DLLPlugin is kind of a universal solution for externalize modules. The way DLLPlugin works, is bundling less frequently changed code ahead of time. That's what prebundle means. DLLPlugin works fine, but it has the defect metioned above.
 
 As the raise of front-end tooling written with compile-to-native language. We can integrate tool like esbuild with Webpack for pre-bundling. ESbuild bundle is so fast that we can build vendors on the fly right before webpack build starts.
 
