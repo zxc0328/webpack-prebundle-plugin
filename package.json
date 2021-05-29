@@ -8,18 +8,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zxc0328/webpack-prebundle-plugin.git"
+    "url": "git+https://github.com/prototeam/webpack-prebundle-plugin.git"
   },
   "keywords": [
     "webpack",
     "prebundling"
   ],
-  "author": "zxc0328",
+  "author": "ProtoTeam",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/zxc0328/webpack-prebundle-plugin/issues"
+    "url": "https://github.com/prototeam/webpack-prebundle-plugin/issues"
   },
-  "homepage": "https://github.com/zxc0328/webpack-prebundle-plugin#readme",
+  "homepage": "https://github.com/prototeam/webpack-prebundle-plugin#readme",
   "peerDependencies": {
     "chokidar": "^3.5.1",
     "esbuild": "^0.11.12"
