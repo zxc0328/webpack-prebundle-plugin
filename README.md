@@ -1,6 +1,7 @@
 ## Webpack-prebundle-plugin
 
 ![](https://img.shields.io/npm/v/webpack-prebundle-plugin)
+![workflow](https://github.com/ProtoTeam/webpack-prebundle-plugin/actions/workflows/ci.yaml/badge.svg)
 
 ### Introduction
 
@@ -77,9 +78,9 @@ Then you are done! Enjoy the build performance boost.
   commons: [
     // a common code bundle
     {
-      entries: [path.resolve(__dirname, '../src/services/index.ts')], // common code entries,  similar to entries in webpack 
+      entry: path.resolve(__dirname, '../src/services/index.ts'), // common code entry file path
       output: path.resolve(__dirname, '../src/prebuilt/services/index.js'), // output file's path
-      watch: true, // config watch mode, pass in true will watch on entries, you can pass in arrays of paths to force wath specific paths
+      watch: true, // config watch mode, pass in true will watch on entries, you can pass in arrays of paths to force wath specific paths like watch: [path.resolve(__dirname, './foo')]
       esbuildOptions: {
             external: ['src/utils/Url'],
             // extra esbuildOptions, doc: https://esbuild.github.io/api/#simple-options
@@ -87,6 +88,8 @@ Then you are done! Enjoy the build performance boost.
    },
 }
 ```
+
+watch options is passed to [chokidar](https://github.com/paulmillr/chokidar). Please Reference chokidar watch paths config for more advanced watch option.
 
 
 View complete option schema in [Schema.json](https://github.com/zxc0328/webpack-prebuild-plugin/blob/master/lib/schema.json)
@@ -114,12 +117,13 @@ We can pre-bundle commons codes as well, and webpack-prebundle-plugin provide wa
 
 ### Use in production
 
-This plugin use Webpack [external](https://webpack.js.org/configuration/externals/) internally, so theoretically it will work fine in production. You need to [define](https://esbuild.github.io/api/#define) `process.env.NODE_ENV` with `'"production"'`in `vendors.esbuildOptions.define` to get minified prod version of your deps. Example:
+This plugin use Webpack [externals](https://webpack.js.org/configuration/externals/) internally, so theoretically it will work fine in production. You need to [define](https://esbuild.github.io/api/#define) `process.env.NODE_ENV` with `'"production"'`in `vendors.esbuildOptions.define` to get minified prod version of your deps. And set minify to true. Example:
 
 ```javascript
 {
     vendors: {
         esbuildOptions: {
+            minify: true,
             define: "process.env.NODE_ENV": '"production"',
         }
     }
