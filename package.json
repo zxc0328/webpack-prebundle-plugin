@@ -1,10 +1,10 @@
 {
   "name": "webpack-prebundle-plugin",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0",
   "description": "A webpack plugin for prebundling your vendors and common code on the fly. Powered by esbuild.",
   "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -25,8 +25,12 @@
     "esbuild": "^0.11.12"
   },
   "dependencies": {
-    "schema-utils": "^3.0.0",
     "chokidar": "^3.5.1",
-    "esbuild": "^0.11.12"
+    "esbuild": "^0.11.12",
+    "schema-utils": "^3.0.0"
+  },
+  "devDependencies": {
+    "jest": "^27.0.1",
+    "tapable": "^2.2.0"
   }
 }

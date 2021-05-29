@@ -34,14 +34,13 @@
         "description": "Common code entry.",
         "type": "object",
         "properties": {
-          "entries": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+          "entry": {
+            "type": "string",
+            "description": "Entry file path."
           },
           "output": {
-            "type": "string"
+            "type": "string",
+            "description": "Output file path."
           },
           "watch": {
             "anyOf": [

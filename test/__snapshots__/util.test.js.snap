@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should generate entry code 1`] = `
+"const wrapper = (m) => { if (m.default) { m.__esModule = true} return m }
+import * as __WEBPACK_PREBUNDLE_GLOBAL_REACT from 'react'
+import * as __WEBPACK_PREBUNDLE_GLOBAL_REACTDOM from 'react-dom'
+import * as __WEBPACK_PREBUNDLE_GLOBAL_ALIPAYFOO from '@alipay/foo'
+window.__WEBPACK_PREBUNDLE_GLOBAL_REACT=wrapper(__WEBPACK_PREBUNDLE_GLOBAL_REACT)
+window.__WEBPACK_PREBUNDLE_GLOBAL_REACTDOM=wrapper(__WEBPACK_PREBUNDLE_GLOBAL_REACTDOM)
+window.__WEBPACK_PREBUNDLE_GLOBAL_ALIPAYFOO=wrapper(__WEBPACK_PREBUNDLE_GLOBAL_ALIPAYFOO)
+"
+`;

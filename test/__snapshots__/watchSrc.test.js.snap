@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should watch for common js 1`] = `
+"// test/entries/mock.a.js
+console.log(\\"modified mock a file content\\");
+//# sourceMappingURL=commonsA.js.map
+"
+`;
