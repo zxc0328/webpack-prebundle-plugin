@@ -1,8 +1,8 @@
 {
   "type": "object",
   "properties": {
-    "logLevel": {
-      "type": "string"
+    "logging": {
+      "type": "boolean"
     },
     "vendors": {
       "type": "object",
