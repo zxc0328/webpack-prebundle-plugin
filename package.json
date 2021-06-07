@@ -1,6 +1,6 @@
 {
   "name": "webpack-prebundle-plugin",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A webpack plugin for prebundling your vendors and common code on the fly. Powered by esbuild.",
   "main": "lib/index.js",
   "scripts": {
